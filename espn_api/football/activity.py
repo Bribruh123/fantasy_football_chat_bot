@@ -28,7 +28,7 @@ class Activity(object):
                         break
             if not player:
                 player = player_info(playerId=msg['targetId'])
-            #self.actions.append((team, action, player, bid_amount))
+            self.actions.append((team, action, player, bid_amount, self.date))
 
     def __repr__(self):
         return 'Activity(' + ' '.join("(%s,%s,%s,%s)" % tup[0:4] for tup in self.actions) + ')'
