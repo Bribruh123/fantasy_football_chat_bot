@@ -121,7 +121,7 @@ def get_scoreboard_short(league, week=None):
 def get_activity(league, week=None):
     #Gets current week's scoreboard
     
-    activity = league.recent_activity()
+    activity = league.recent_activity(size=3)
     
     activity_txt = []
     
