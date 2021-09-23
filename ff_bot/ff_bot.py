@@ -124,12 +124,7 @@ def get_activity(league, week=None):
     activity_txt = 'Recent Activity: '
     
     for a in activity:
-        print(a)
         for action in a.actions:
-            print("\t", action)
-            
-            #print("Team ", action[0].team_name, " ", action[1], " ", action[2].name  )
-            
             activity_txt += "\n"+ "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name 
     
     return activity_txt
@@ -416,6 +411,8 @@ def bot_main(function):
         text = get_trophies(league)
     elif function=="get_standings":
         text = get_standings(league, top_half_scoring)
+    elif function=="get_activity":
+        text = get_activity(league)
     elif function=="get_final":
         # on Tuesday we need to get the scores of last week
         week = league.current_week - 1
@@ -470,6 +467,9 @@ if __name__ == '__main__':
 
     sched.add_job(bot_main, 'cron', ['get_power_rankings'], id='power_rankings',
         day_of_week='tue', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        timezone=my_timezone, replace_existing=True)
+    sched.add_job(bot_main, 'interval', ['get_activity'], id='get_activity',
+        minutes =1, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_matchups'], id='matchups',
         day_of_week='thu', hour=19, minute=30, start_date=ff_start_date, end_date=ff_end_date,
