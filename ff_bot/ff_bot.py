@@ -122,38 +122,25 @@ def get_scoreboard_short(league, week=None):
     return '\n'.join(text)
     
 def get_activity(league, week=None):
-    #Gets current week's scoreboard
+    #Gets recent activity
     
     activity = league.recent_activity(size=10)
-    
     current = datetime.datetime.now() - datetime.timedelta(hours=5)
-    
-    print(  str(current).split(' ')[1].split('.')[0] , "CDT" )
-    
+    print(str(current).split(' ')[1].split('.')[0] , "CDT" )
     activity_txt = []
     
     for a in activity:
         for action in a.actions:
-            
+        
             action_team = action[0].team_name
             action_name = action[1]
             actions_player = action[2].name
             action_datetime = action[4]- datetime.timedelta(hours=5)
-            
-            
-            
-            
-            
-            
-            #if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
-            activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
-            print(  "\t" + action_team ,  " " , action_name , " " , actions_player , " @ " , str(action_datetime).split(' ')[1].split('.')[0] , " CDT")
-            print("\b - NEW - Sending")
-            
-           
-                
-            
-    
+            if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
+                activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+                print("\t" + action_team ,  " " , action_name , " " , actions_player , " @ " , str(action_datetime).split(' ')[1].split('.')[0] , " CDT")
+                print("\t - NEW - Sending")
+     
     text = ['Recent Activity: '] + activity_txt
     
     return '\n'.join(text)
