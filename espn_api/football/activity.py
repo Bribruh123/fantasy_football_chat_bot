@@ -1,11 +1,21 @@
 from .constant import ACTIVITY_MAP
+import datetime
 
 class Activity(object):
     def __init__(self, data, player_map, get_team_data, player_info):
         self.actions = [] # List of tuples (Team, action, Player)
         
         self.date = data['date']
-        print(self.date, data['messages'])
+        
+        
+        
+        epoch_time = self.date
+  
+        # using the datetime.fromtimestamp() function  
+        date_time = datetime.datetime.fromtimestamp( epoch_time ) 
+        
+        print(date_time)
+        
         for msg in data['messages']:
             team = ''
             action = 'UNKNOWN'
