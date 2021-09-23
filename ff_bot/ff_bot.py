@@ -127,7 +127,7 @@ def get_activity(league, week=None):
     
     current = datetime.datetime.now()
     
-    print(current.astimezone(timezone('US/Central')))
+    print(current.astimezone(datetime.timezone('US/Central')))
     
     activity_txt = []
     
