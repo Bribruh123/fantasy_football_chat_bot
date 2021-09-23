@@ -14,7 +14,7 @@ class Activity(object):
         # using the datetime.fromtimestamp() function  
         date_time = datetime.datetime.fromtimestamp( epoch_time/1000 ) 
         
-        current = datetime.now()
+        current = datetime.datetime.now()
         
         print(date_time, current)
         
