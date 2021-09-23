@@ -16,7 +16,7 @@ class Activity(object):
         
         current = datetime.fromtimestamp(timestamp)
         
-        print(date_time)
+        print(date_time, current)
         
         for msg in data['messages']:
             team = ''
