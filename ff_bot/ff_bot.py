@@ -138,10 +138,10 @@ def get_activity(league, week=None):
             
             print(  "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)
             
-            activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)
             
-            # if (str(current).split(":")[0:2] == str(action[4]).split(":")[0:2]):
-                # activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+            
+            if (str(current).split(":")[0:2] == str(action[4]).split(":")[0:2]):
+                activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
             
             
     
@@ -441,8 +441,9 @@ def bot_main(function):
         text = get_standings(league, top_half_scoring)
     elif function=="get_activity":
         text = get_activity(league)
+        print(text)
         print(len(text))
-        if len(text) == 1:
+        if len(text) == 17:
             text = ''
     elif function=="get_final":
         # on Tuesday we need to get the scores of last week
