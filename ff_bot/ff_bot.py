@@ -4,6 +4,7 @@ import os
 import random
 from apscheduler.schedulers.blocking import BlockingScheduler
 from espn_api.football import League
+import datetime
 
 last_activity = ''
 
@@ -117,7 +118,6 @@ def get_scoreboard_short(league, week=None):
              if i.away_team]
     text = ['Score Update'] + score
     
-    print("TESSSSSTTT", text)
     return '\n'.join(text)
     
 def get_activity(league, week=None):
