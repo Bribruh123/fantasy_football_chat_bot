@@ -121,7 +121,15 @@ def get_scoreboard_short(league, week=None):
 def get_activity(league, week=None):
     #Gets current week's scoreboard
     
-    activity = league.recent_activity(size=3)
+    activity = league.recent_activity(size=1)
+    
+    if not self.last_activity:
+        self.last_activity = activity
+    else:
+    
+    
+        if self.last_activity = activity:
+            print("same")
     
     activity_txt = []
     
