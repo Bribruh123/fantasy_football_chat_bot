@@ -127,8 +127,8 @@ def get_activity(league, week=None):
     activity = league.recent_activity(size=10)
     current = datetime.datetime.now() - datetime.timedelta(hours=5)
     most_recent = activity[0].actions[0][4] - datetime.timedelta(hours=5)
-    print("Current time:                 " , str(current).split(' ')[1].split('.')[0] , "CDT" )
-    print("Time of most recent activity: " , str(most_recent).split(' ')[1].split('.')[0] , "CDT")
+    print("Current time:                 " , str(current).split('.')[0] , "CDT" )
+    print("Time of most recent activity: " , str(most_recent).split('.')[0] , "CDT")
     activity_txt = []
     
     for a in activity:
@@ -139,11 +139,10 @@ def get_activity(league, week=None):
             action_name = action[1]
             actions_player = action[2].name
             action_datetime = action[4]- datetime.timedelta(hours=5)
-            print("\t" + action[0].team_name + "( " + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
-            if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
-                activity_txt.append( "" + action[0].team_name + "( " + action_owner +  ") " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
-                print("\t" + action[0].team_name + "( " + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
-                print("\t - NEW - Sending")
+            #if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
+            activity_txt.append( "" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+            print("\t" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
+            print("\t - NEW - Sending")
      
     text = ['Recent Activity: '] + activity_txt
     
