@@ -123,7 +123,7 @@ def get_scoreboard_short(league, week=None):
 def get_activity(league, week=None):
     #Gets current week's scoreboard
     
-    activity = league.recent_activity(size=1)
+    activity = league.recent_activity(size=10)
     
     current = datetime.datetime.now()
     
@@ -134,9 +134,9 @@ def get_activity(league, week=None):
     for a in activity:
         print(a)
         for action in a.actions:
-            print(str(current).split(":")[0:2], str(action[4]).split(":")[0:2])
+            #print(str(current).split(":")[0:2], str(action[4]).split(":")[0:2])
             
-            print(  "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)
+            print(  "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name + " @ " + ''.join(str(action[4]).split(":")[0:2]))
             
             
             
