@@ -138,8 +138,10 @@ def get_activity(league, week=None):
             
             print(  "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)
             
-            if (str(current).split(":")[0:2] == str(action[4]).split(":")[0:2]):
-                activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+            activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)
+            
+            # if (str(current).split(":")[0:2] == str(action[4]).split(":")[0:2]):
+                # activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
             
             
     
