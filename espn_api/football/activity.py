@@ -5,6 +5,7 @@ class Activity(object):
         self.actions = [] # List of tuples (Team, action, Player)
         
         self.date = data['date']
+        print(self.date, data['date'])
         for msg in data['messages']:
             team = ''
             action = 'UNKNOWN'
