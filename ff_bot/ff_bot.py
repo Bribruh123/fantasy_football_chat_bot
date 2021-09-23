@@ -132,7 +132,10 @@ def get_activity(league, week=None):
     for a in activity:
         print(a)
         for action in a.actions:
-            print(current, action[4])
+            print(currentcurrent.split(":")[0:1], action[4].split(":")[0:1],)
+            
+            if (current.split(":"))
+            
             activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name )
     
     
