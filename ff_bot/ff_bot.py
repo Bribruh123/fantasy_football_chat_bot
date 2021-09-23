@@ -114,6 +114,8 @@ def get_scoreboard_short(league, week=None):
              i.away_score, i.away_team.team_abbrev) for i in box_scores
              if i.away_team]
     text = ['Score Update'] + score
+    
+    print("TESSSSSTTT", text)
     return '\n'.join(text)
     
 def get_activity(league, week=None):
@@ -125,7 +127,7 @@ def get_activity(league, week=None):
     
     for a in activity:
         for action in a.actions:
-            activity_txt .append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name )
+            activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name )
     
     
     text = ['Recent Activity: '] + activity_txt
