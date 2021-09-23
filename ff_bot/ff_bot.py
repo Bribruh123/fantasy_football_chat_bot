@@ -123,7 +123,8 @@ def get_activity(league, week=None):
     
     for a in activity:
         print(a)
-        print(a.actions )
+        for action in a.actions:
+            print(action)
     
     return "test"
     # score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
