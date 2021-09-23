@@ -128,7 +128,7 @@ def get_activity(league, week=None):
     else:
     
     
-        if self.last_activity = activity:
+        if self.last_activity == activity:
             print("same")
     
     activity_txt = []
