@@ -5,6 +5,7 @@ import random
 from apscheduler.schedulers.blocking import BlockingScheduler
 from espn_api.football import League
 import datetime
+import re
 
 last_activity = ''
 
@@ -127,7 +128,7 @@ def get_activity(league, week=None):
     
     current = datetime.datetime.now() - datetime.timedelta(hours=5)
     
-    print(current)
+    print(  re.split(' | , ', str(current))  )
     #print(current.astimezone(datetime.timezone('US/Central')))
     
     activity_txt = []
