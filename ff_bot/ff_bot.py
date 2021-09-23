@@ -132,7 +132,7 @@ def get_activity(league, week=None):
     for a in activity:
         print(a)
         for action in a.actions:
-            print(current.split(":")[0:1], action[4].split(":")[0:1])
+            print(str(current).split(":")[0:1], action[4].split(":")[0:1])
             
             
             
