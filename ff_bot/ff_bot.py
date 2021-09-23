@@ -80,7 +80,8 @@ class DiscordBot(object):
 
     def send_message(self, text):
         #Sends a message to the chatroom
-        message = "```{0}```".format(text)
+        # message = "```{0}```".format(text)
+        message = text
         template = {
                     "content":message
                     }
