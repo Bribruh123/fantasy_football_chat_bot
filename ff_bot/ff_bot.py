@@ -131,6 +131,8 @@ def get_activity(league, week=None):
     
     
     text = ['Recent Activity: '] + activity_txt
+    
+    print("TESSSSSTTT", text)
     return '\n'.join(text)
     # score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
              # i.away_score, i.away_team.team_abbrev) for i in box_scores
