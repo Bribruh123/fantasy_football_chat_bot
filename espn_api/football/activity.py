@@ -10,13 +10,9 @@ class Activity(object):
         
         
         epoch_time = self.date
-        print(epoch_time)
         # using the datetime.fromtimestamp() function  
         date_time = datetime.datetime.fromtimestamp( epoch_time/1000 ) 
         
-        current = datetime.datetime.now()
-        
-        print(date_time, current)
         
         for msg in data['messages']:
             team = ''
@@ -41,14 +37,10 @@ class Activity(object):
                         break
             if not player:
                 player = player_info(playerId=msg['targetId'])
-            print(type(bid_amount), type(date_time))
             self.actions.append((team, action, player, bid_amount, date_time))
             
-            print("%s" % str(date_time))
 
     def __repr__(self):
-        for a in self.actions:
-            print(a[0:5])
         return 'Activity(' + ' '.join("(%s,%s,%s,%s,%s)" % tup[0:5] for tup in self.actions) + ')'
 
 

@@ -125,13 +125,14 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity(size=1)
     
-   
+    current = datetime.datetime.now()
     
     activity_txt = []
     
     for a in activity:
         print(a)
         for action in a.actions:
+            print(current, action[4])
             activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name )
     
     
