@@ -121,14 +121,18 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity()
     
+    activity_txt = ""
+    
     for a in activity:
         print(a)
         for action in a.actions:
             print("\t", action)
             
-            print("Team ", action.team_name, " ", action[1], " ", action.name  )
+            #print("Team ", action[0].team_name, " ", action[1], " ", action[2].name  )
+            
+            activity_txt.append("Team ", action[0].team_name, " ", action[1], " ", action[2].name )
     
-    return "test"
+    return activity_txt
     # score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
              # i.away_score, i.away_team.team_abbrev) for i in box_scores
              # if i.away_team]
