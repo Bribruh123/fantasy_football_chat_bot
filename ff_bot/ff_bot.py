@@ -78,10 +78,12 @@ class DiscordBot(object):
     def __repr__(self):
         return "Discord Webhook Url(%s)" % self.webhook_url
 
-    def send_message(self, text):
+    def send_message(self, text, embed: bool = True):
         #Sends a message to the chatroom
-        # message = "```{0}```".format(text)
-        message = text
+        if embed:
+            message = "```{0}```".format(text)
+        else:
+            message = text
         template = {
                     "content":message
                     }
@@ -140,10 +142,10 @@ def get_activity(league, week=None):
             action_name = action[1]
             actions_player = action[2].name
             action_datetime = action[4]- datetime.timedelta(hours=5)
-            if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
-                activity_txt.append( "" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
-                print("\t" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
-                print("\tNEW - Sending")
+            #if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
+            activity_txt.append( "" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+            print("\t" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
+            print("\tNEW - Sending")
      
     text = ['Recent Activity: '] + activity_txt
     
@@ -439,6 +441,7 @@ def bot_main(function):
             print("No New Activity")
         else:
             print("New Activity - Sending Update")
+            discord_bot.send_message("[Recent Activity](https://fantasy.espn.com/football/league?leagueId=1844436928)", embed = False)
     elif function=="get_final":
         # on Tuesday we need to get the scores of last week
         week = league.current_week - 1
