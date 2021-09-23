@@ -127,7 +127,7 @@ def get_activity(league, week=None):
     
     current = datetime.datetime.now()
     
-    #print(current.astimezone(datetime.timezone('US/Central')))
+    print(current.astimezone(datetime.timezone('US/Central')))
     
     activity_txt = []
     
@@ -136,15 +136,16 @@ def get_activity(league, week=None):
         for action in a.actions:
             #print(str(current).split(":")[0:2], str(action[4]).split(":")[0:2])
             
-            print(  "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name + " @ " + ''.join(str(action[4]).split(":")[0:2]))
+            print(  "\tTeam " + action[0].team_name +  " " + action[1] + " " + action[2].name + " @ " + action[4].astimezone(datetime.timezone('US/Central')))
             
             
             
             if (str(current).split(":")[0:2] == str(action[4]).split(":")[0:2]):
                 activity_txt.append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+                print("\tNEW - Sending")
             
-            
-    
+            else:
+                print("\tOLD")
     
     text = ['Recent Activity: '] + activity_txt
     
