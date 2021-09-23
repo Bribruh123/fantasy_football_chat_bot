@@ -147,12 +147,15 @@ def get_activity(league, week=None):
             
             
             
-            if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
-                activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name + " " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
-                print("\t-NEW - Sending")
+            # if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
+                # activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name + " " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+                # print("\b - NEW - Sending")
             
-            else:
-                print("\-tOLD")
+            # else:
+                # print("\b - OLD")
+                
+            activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name + " " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+            print("\b - NEW - Sending")
     
     text = ['Recent Activity: '] + activity_txt
     
