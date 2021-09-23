@@ -5,6 +5,8 @@ import random
 from apscheduler.schedulers.blocking import BlockingScheduler
 from espn_api.football import League
 
+last_activity = ''
+
 class GroupMeException(Exception):
     pass
 
@@ -123,12 +125,12 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity(size=1)
     
-    if not self.last_activity:
-        self.last_activity = activity
+    if not last_activity:
+        last_activity = activity
     else:
     
     
-        if self.last_activity == activity:
+        if last_activity == activity:
             print("same")
     
     activity_txt = []
