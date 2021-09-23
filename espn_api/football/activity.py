@@ -10,7 +10,7 @@ class Activity(object):
         
         
         epoch_time = self.date
-  
+        print(epoch_time)
         # using the datetime.fromtimestamp() function  
         date_time = datetime.datetime.fromtimestamp( epoch_time ) 
         
