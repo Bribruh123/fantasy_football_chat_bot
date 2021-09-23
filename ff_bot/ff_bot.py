@@ -125,7 +125,7 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity(size=1)
     
-    current = datetime.now()
+    current = datetime.datetime.now()
     
     activity_txt = []
     
@@ -313,7 +313,6 @@ def get_trophies(league, week=None):
     text = ['Trophies of the week:'] + low_score_str + high_score_str + close_score_str + blowout_str
     return '\n'.join(text)
 
-from datetime import datetime, timezone
 
 def utc_to_local(utc_dt):
     return utc_dt.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None)
