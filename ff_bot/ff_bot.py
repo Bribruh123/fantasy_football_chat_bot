@@ -141,7 +141,7 @@ def get_activity(league, week=None):
             action_team = action[0].team_name
             action_name = action[1]
             actions_player = action[2].name
-            action_datetime + action[4]- datetime.timedelta(hours=5)
+            action_datetime = action[4]- datetime.timedelta(hours=5)
             
             
             print(  "\tTeam " + action_team +  " " + action_name + " " + actions_player + " @ " + re.split(' |. ', str(action_datetime))[1] + "CDT")
