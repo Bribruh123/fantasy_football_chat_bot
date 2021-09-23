@@ -121,11 +121,11 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity()
     
-    activity_txt = ''
+    activity_txt = []
     
     for a in activity:
         for action in a.actions:
-            activity_txt += "\n"+ "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name 
+            activity_txt .append( "Team " + action[0].team_name +  " " + action[1] + " " + action[2].name )
     
     
     text = ['Recent Activity: '] + activity_txt
