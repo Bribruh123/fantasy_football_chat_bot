@@ -43,7 +43,7 @@ class Activity(object):
 
     def __repr__(self):
         for action in self.actions:
-            print(action[0:4])
+            print(action[0:5])
         return 'Activity(' + ' '.join("(%s,%s,%s,%s)" % tup[0:4] for tup in self.actions) + ')'
 
 
