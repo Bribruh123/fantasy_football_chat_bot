@@ -128,7 +128,7 @@ def get_activity(league, week=None):
     
     current = datetime.datetime.now() - datetime.timedelta(hours=5)
     
-    print(  re.split(' | , ', str(current))  )
+    print(  re.split(' | . ', str(current))[1] , "CDT" )
     #print(current.astimezone(datetime.timezone('US/Central')))
     
     activity_txt = []
