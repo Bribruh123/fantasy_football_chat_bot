@@ -118,7 +118,7 @@ def get_scoreboard_short(league, week=None):
     
 def get_activity(league, week=None):
     #Gets current week's scoreboard
-    return league.recent_activity(week=week)
+    return league.recent_activity()
     # score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
              # i.away_score, i.away_team.team_abbrev) for i in box_scores
              # if i.away_team]
