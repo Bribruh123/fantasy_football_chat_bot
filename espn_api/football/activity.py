@@ -42,7 +42,7 @@ class Activity(object):
             if not player:
                 player = player_info(playerId=msg['targetId'])
             print(type(bid_amount), type(date_time))
-            self.actions.append((team, action, player, bid_amount, str(date_time)))
+            self.actions.append((team, action, player, bid_amount, date_time))
 
     def __repr__(self):
         for a in self.actions:
