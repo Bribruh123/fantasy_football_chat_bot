@@ -115,6 +115,15 @@ def get_scoreboard_short(league, week=None):
              if i.away_team]
     text = ['Score Update'] + score
     return '\n'.join(text)
+    
+def get_activity(league, week=None):
+    #Gets current week's scoreboard
+    return recent_activity = league.recent_activity(week=week)
+    # score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
+             # i.away_score, i.away_team.team_abbrev) for i in box_scores
+             # if i.away_team]
+    # text = ['Score Update'] + score
+    # return '\n'.join(text)
 
 def get_projected_scoreboard(league, week=None):
     #Gets current week's scoreboard projections
@@ -370,6 +379,7 @@ def bot_main(function):
         print(get_power_rankings(league))
         print(get_scoreboard_short(league))
         print(get_standings(league, top_half_scoring))
+        print(get_activity(league))
         function="get_final"
         bot.send_message("Testing")
         slack_bot.send_message("Testing")
