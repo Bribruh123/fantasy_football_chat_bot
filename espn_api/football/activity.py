@@ -42,6 +42,8 @@ class Activity(object):
             self.actions.append((team, action, player, bid_amount, self.date))
 
     def __repr__(self):
+        for action in self.actions:
+            print(action)
         return 'Activity(' + ' '.join("(%s,%s,%s,%s)" % tup[0:4] for tup in self.actions) + ')'
 
 
