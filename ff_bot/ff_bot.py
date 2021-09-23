@@ -126,15 +126,18 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity(size=10)
     current = datetime.datetime.now() - datetime.timedelta(hours=5)
-    print(str(current).split(' ')[1].split('.')[0] , "CDT" )
+    most_recent = activity[0].actions[0][4] - datetime.timedelta(hours=5)
+    print("Current time: " , str(current).split(' ')[1].split('.')[0] , "CDT" )
+    print("Time of ost recent activity: ", str(most_recent).split(' ')[1].split('.')[0] , "CDT")
     activity_txt = []
     
-    print(activity[0].actions[0][4] - datetime.timedelta(hours=5))
     for a in activity:
         print(a)
         for action in a.actions:
         
             action_team = action[0].team_name
+            action_owner = action[0].owner
+            print(action_owner)
             action_name = action[1]
             actions_player = action[2].name
             action_datetime = action[4]- datetime.timedelta(hours=5)
