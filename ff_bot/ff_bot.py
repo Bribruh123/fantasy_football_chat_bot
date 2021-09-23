@@ -128,7 +128,7 @@ def get_activity(league, week=None):
     
     current = datetime.datetime.now() - datetime.timedelta(hours=5)
     
-    print(  re.split(' | . ', str(current))[1] , "CDT" )
+    print(  re.split(' |. ', str(current))[1] , "CDT" )
     #print(current.astimezone(datetime.timezone('US/Central')))
     
     activity_txt = []
@@ -138,7 +138,13 @@ def get_activity(league, week=None):
         for action in a.actions:
             #print(str(current).split(":")[0:2], str(action[4]).split(":")[0:2])
             
-            print(  "\tTeam " + action[0].team_name +  " " + action[1] + " " + action[2].name + " @ " + str(action[4]- datetime.timedelta(hours=5)))
+            action_team = action[0].team_name
+            action_name = action[1]
+            actions_player = action[2].name
+            action_datetime + action[4]- datetime.timedelta(hours=5)
+            
+            
+            print(  "\tTeam " + action_team +  " " + action_name + " " + actions_player + " @ " + re.split(' |. ', str(action_datetime))[1] + "CDT")
             
             
             
