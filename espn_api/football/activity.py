@@ -45,7 +45,7 @@ class Activity(object):
 
     def __repr__(self):
         for a in self.actions:
-            pfint(a[0:5])
+            print(a[0:5])
         return 'Activity(' + ' '.join("(%s,%s,%s,%s)" % tup[0:5] for tup in self.actions) + ')'
 
 
