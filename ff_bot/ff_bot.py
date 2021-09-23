@@ -129,12 +129,10 @@ def get_activity(league, week=None):
     current = datetime.datetime.now() - datetime.timedelta(hours=5)
     
     print(  str(current).split(' ')[1].split('.')[0] , "CDT" )
-    #print(current.astimezone(datetime.timezone('US/Central')))
     
     activity_txt = []
     
     for a in activity:
-        #print(a)
         for action in a.actions:
             
             action_team = action[0].team_name
@@ -143,29 +141,22 @@ def get_activity(league, week=None):
             action_datetime = action[4]- datetime.timedelta(hours=5)
             
             
+            
+            
+            
+            
+            #if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
+            activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
             print(  "\t" + action_team ,  " " , action_name , " " , actions_player , " @ " , str(action_datetime).split(' ')[1].split('.')[0] , " CDT")
-            
-            
-            
-            # if (str(current).split(":")[0:2] == str(action_datetime).split(":")[0:2]):
-                # activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name + " " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
-                # print("\b - NEW - Sending")
-            
-            # else:
-                # print("\b - OLD")
-                
-            activity_txt.append( "" + action[0].team_name +  " " + action[1] + " " + action[2].name + " " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
             print("\b - NEW - Sending")
+            
+           
+                
+            
     
     text = ['Recent Activity: '] + activity_txt
     
-    print( text)
     return '\n'.join(text)
-    # score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
-             # i.away_score, i.away_team.team_abbrev) for i in box_scores
-             # if i.away_team]
-    # text = ['Score Update'] + score
-    # return '\n'.join(text)
 
 def get_projected_scoreboard(league, week=None):
     #Gets current week's scoreboard projections
@@ -452,10 +443,11 @@ def bot_main(function):
         text = get_standings(league, top_half_scoring)
     elif function=="get_activity":
         text = get_activity(league)
-        print(text)
-        print(len(text))
         if len(text) == 17:
             text = ''
+            print("No New Activity")
+        else:
+            print("New Activity - Sending Update")
     elif function=="get_final":
         # on Tuesday we need to get the scores of last week
         week = league.current_week - 1
