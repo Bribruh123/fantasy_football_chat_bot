@@ -121,6 +121,7 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity()
     
+    activity_txt = ''
     
     for a in activity:
         print(a)
