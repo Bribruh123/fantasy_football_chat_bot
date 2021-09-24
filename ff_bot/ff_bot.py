@@ -129,7 +129,7 @@ def get_activity(league, week=None):
     
     activity = league.recent_activity(size=10)
     #current = datetime.datetime.now() - datetime.timedelta(hours=5)
-    current = datetime.datetime(2021, 9, 23, 0, 10, 30)
+    current = datetime.datetime(2021, 9, 23, 10, 30, 0)
     
     most_recent = activity[0].actions[0][4] - datetime.timedelta(hours=5)
     print("Current time:                 " , str(current).split('.')[0] , "CDT" )
