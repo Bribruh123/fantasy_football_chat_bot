@@ -37,6 +37,7 @@ class EspnFantasyRequests(object):
         endpoint = self.LEAGUE_ENDPOINT + extend
         r = requests.get(endpoint, params=params, headers=headers, cookies=self.cookies)
         checkRequestStatus(r.status_code)
+        print(self.LEAGUE_ENDPOINT, headers, self.cookies)
         print("response", r.headers())
         if self.logger:
             self.logger.log_request(endpoint=endpoint, params=params, headers=headers, response=r.json())
