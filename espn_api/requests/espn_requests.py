@@ -37,7 +37,7 @@ class EspnFantasyRequests(object):
         endpoint = self.LEAGUE_ENDPOINT + extend
         r = requests.get(endpoint, params=params, headers=headers, cookies=self.cookies)
         checkRequestStatus(r.status_code)
-        print("response", r.json())
+        print("response", r.headers())
         if self.logger:
             self.logger.log_request(endpoint=endpoint, params=params, headers=headers, response=r.json())
         return r.json() if self.year > 2017 else r.json()[0]
