@@ -149,10 +149,10 @@ def get_activity(league, week=None):
             
             print('\t', ''.join(str(current_minus_one_min).split(":")[0:2]) , "==", ''.join(str(action_datetime).split(":")[0:2]))
             #print(current, action_datetime)
-            #if (''.join(str(current_minus_one_min).split(":")[0:2]) == ''.join(str(action_datetime).split(":")[0:2])):
-            activity_txt.append( "" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
-            print("\t" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
-            print("\tNEW - Sending")
+            if (''.join(str(current_minus_one_min).split(":")[0:2]) == ''.join(str(action_datetime).split(":")[0:2])):
+                activity_txt.append( "" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
+                print("\t" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
+                print("\tNEW - Sending")
      
     text = ['Recent Activity: '] + activity_txt
     
