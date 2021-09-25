@@ -22,6 +22,8 @@ class Activity(object):
             msg_id = msg['messageTypeId']
             if msg_id == 244:
                 team = get_team_data(msg['from'])
+            elif msg_id == 224:
+                team = get_team_data(msg['from'])
             elif msg_id == 239:
                 team = get_team_data(msg['for'])
             else:
