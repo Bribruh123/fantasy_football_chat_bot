@@ -149,7 +149,7 @@ class League(BaseLeague):
         if self.year < 2019:
             raise Exception('Cant use recent activity before 2019')
 
-        msg_types = [178,180,179,239,181,244]
+        msg_types = [178,180,179,239,181,244,224]
         if msg_type in ACTIVITY_MAP:
             msg_types = [ACTIVITY_MAP[msg_type]]
         params = {
