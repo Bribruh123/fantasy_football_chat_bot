@@ -149,7 +149,7 @@ def get_activity(league, week=None):
             
             print('\t', ''.join(str(current_minus_one_min).split(":")[0:2]) , "==", ''.join(str(action_datetime).split(":")[0:2]))
             #print(current, action_datetime)
-            if (''.join(str(current_minus_one_min).split(":")[0:2]) == ''.join(str(action_datetime).split(":")[0:2])):
+            if (''.join(str(current_minus_one_min).split(":")[0:2]) == ''.join(str(action_datetime).split(":")[0:2]) and "TRADED" in action[1]):
                 activity_txt.append( "" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name)# + " at "  + str(str(current.stimezone(timezone('US/Central')).split(":")[0:2].join()))
                 print("\t" + action[0].team_name + "(" + action_owner +  ") " + action[1] + " " + action[2].name + " @ " +  str(action_datetime).split(' ')[1].split('.')[0] + "CDT")
                 print("\tNEW - Sending")
@@ -425,16 +425,16 @@ def bot_main(function):
         discord_bot.send_message("Testing")
 
     text = ''
-    if function=="get_matchups":
-        text = get_matchups(league,random_phrase)
-        text = text + "\n\n" + get_projected_scoreboard(league)
-    elif function=="get_scoreboard_short":
+    # if function=="get_matchups":
+        # text = get_matchups(league,random_phrase)
+        # text = text + "\n\n" + get_projected_scoreboard(league)
+    if function=="get_scoreboard_short":
         text = get_scoreboard_short(league)
         text = text + "\n\n" + get_projected_scoreboard(league)
-    elif function=="get_projected_scoreboard":
-        text = get_projected_scoreboard(league)
-    elif function=="get_close_scores":
-        text = get_close_scores(league)
+    # elif function=="get_projected_scoreboard":
+        # text = get_projected_scoreboard(league)
+    # elif function=="get_close_scores":
+        # text = get_close_scores(league)
     elif function=="get_power_rankings":
         text = get_power_rankings(league)
     elif function=="get_trophies":
